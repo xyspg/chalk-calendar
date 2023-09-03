@@ -14,4 +14,9 @@
 
 F12控制台 - Network - 筛选 Fetch/XHR - events?end_time ... 这条请求 - Response - 全选复制
 ![guide](images/console.jpg)
+
+在同一目录下创建 `data.json` 文件，将复制的内容粘贴进去
 运行 python 程序
+```bash
+python3 path-to-your-directory/chalk-calender.py
+```
