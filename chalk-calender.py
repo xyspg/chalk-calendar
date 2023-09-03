@@ -2,7 +2,7 @@ import datetime
 import json
 
 # config
-# 设置学期结束时间
+# 在这里设置学期结束时间，当前是 2024-01-27 结束
 END_REPEATING_TIME = "20240127T235959"
 
 # 把希悦上events?开头的请求 Response 的 json 数据放在同一目录下到 data.json
