@@ -21,3 +21,4 @@ F12控制台 - Network - 筛选 Fetch/XHR - events?end_time ... 这条请求 - R
 ```bash
 python3 path-to-your-directory/chalk-calender.py
 ```
+打开目录下生成的 `schedule.ics` 即可
