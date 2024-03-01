@@ -1,9 +1,22 @@
 import datetime
 import json
 
-# config
-# 在这里设置学期结束时间，当前是 2024-01-27 结束
-END_REPEATING_TIME = "20240127T235959"
+"""
+手动设置学期结束时间 格式: YYYYMMDD
+example: DATE_OVERRIDE = 20240630 # 2024年6月30日结束 
+"""
+DATE_OVERRIDE = None 
+
+
+now = datetime.datetime.now()
+end_repeating_time = ''
+if DATE_OVERRIDE is None:
+    if now.month >= 9:
+        end_repeating_time = f'{now.year + 1}0115' # Fall Term
+    else:
+        end_repeating_time = f'{now.year}0601' # Summer Term
+else:
+    end_repeating_time = DATE_OVERRIDE
 
 # 把希悦上events?开头的请求 Response 的 json 数据放在同一目录下到 data.json
 # 首先打开 F12，把课程表选择周视图，切换至有课程的一页
@@ -55,7 +68,7 @@ for event in merged_data:
         f"DTEND:{end_time}",
         f"SUMMARY:{event['title']}",
         f"LOCATION:{event['address']}",
-        f"RRULE:FREQ=WEEKLY;UNTIL={END_REPEATING_TIME}",
+        f"RRULE:FREQ=WEEKLY;UNTIL={end_repeating_time}T235959",
         "END:VEVENT"
     ])
 
